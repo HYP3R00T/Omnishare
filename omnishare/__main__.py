@@ -16,10 +16,10 @@ app = typer.Typer()
 
 @app.command()
 def main(
-    file: Annotated[str, typer.Argument(help="Provide markdown file")],
-    add_token: Annotated[bool | None, typer.Option(help="Add API token")] = False,
-    config: Annotated[bool | None, typer.Option(help="Configure the tool")] = False,
-    reset: Annotated[bool | None, typer.Option(help="Warning: Remove all saved tokens")] = False,
+    file: Annotated[str, typer.Argument(help="Provide markdown file")] = None,
+    add_token: Annotated[bool, typer.Option(help="Add API token")] = False,
+    config: Annotated[bool, typer.Option(help="Configure the tool")] = False,
+    reset: Annotated[bool, typer.Option(help="Warning: Remove all saved tokens")] = False,
 ):
     # Greeter
     console: Console = Console()
@@ -49,9 +49,12 @@ def main(
         # TODO: Add handler
         pass
 
-    post: Post = process_file(file)
-    linkedin_post(markdown_to_plain(post.content))
-    mastodon_post(markdown_to_plain(post.content))
+    if file:
+        post: Post = process_file(file)
+        linkedin_post(markdown_to_plain(post.content))
+        mastodon_post(markdown_to_plain(post.content))
+    elif not (add_token or config or reset):
+        raise typer.BadParameter("No file provided")
 
 
 if __name__ == "__main__":
