@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "omnishare"
+version = "0.1.0"
+description = ""
+authors = ["hyperoot <hyperoot.tech@proton.me>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+typer = "^0.13.1"
+rich = "^13.9.4"
+cryptography = "^43.0.3"
+beaupy = "^3.9.2"
+keypress = "^0.1.7"
+python-frontmatter = "^1.1.0"
+markdown-it-py = "^3.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.0"
+pre-commit = "^4.0.1"
+mkdocs-material = "^9.5.45"
+mkdocs-roamlinks-plugin = "^0.3.2"
+mkdocs-callouts = "^1.14.1"
+termynal = "^0.12.2"
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+omnishare = "omnishare.__main__:main"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "I", # isort
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+
+]
+ignore = [
+    "E501", # line too long
+    "C901", # too complex
+
+]
+
+[tool.ruff.lint.isort]
+order-by-type = true
+relative-imports-order = "closest-to-furthest"
+extra-standard-library = ["typing"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
