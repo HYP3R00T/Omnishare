@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "omnishare"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = ["hyperoot <hyperoot.tech@proton.me>"]
 readme = "README.md"
