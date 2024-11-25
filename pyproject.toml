@@ -31,7 +31,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-omnishare = "omnishare.__main__:main"
+omnishare = "omnishare.__main__:app"
 
 [tool.ruff]
 line-length = 120
