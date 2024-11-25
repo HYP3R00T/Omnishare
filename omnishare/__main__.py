@@ -15,7 +15,7 @@ app = typer.Typer()
 
 
 @app.command()
-def main(
+def executor(
     file: Annotated[str, typer.Argument(help="Provide markdown file")] = None,
     add_token: Annotated[bool, typer.Option(help="Add API token")] = False,
     config: Annotated[bool, typer.Option(help="Configure the tool")] = False,
@@ -55,6 +55,10 @@ def main(
         mastodon_post(markdown_to_plain(post.content))
     elif not (add_token or config or reset):
         raise typer.BadParameter("No file provided")
+
+
+def main():
+    app()
 
 
 if __name__ == "__main__":
