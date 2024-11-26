@@ -77,6 +77,8 @@ extra:
       link: https://github.com/HYP3R00T
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/rajesh-kumar-das/
+    - icon: fontawesome/brands/mastodon
+      link: https://mastodon.social/@hyp3r00t
     - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/HYP3R00T
   status:
